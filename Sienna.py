@@ -5,13 +5,13 @@ import random
 import peewee
 from peewee import *
 
-Token = 'MTEzOTIzNDgyNzcyMDIwODQwNA.G9BkAS.c1jAB84NeJqVgjJuIEBSPkSwrDpaVmOCj9ug70'
-Streaming = 'Mrawr!'
-
 intents = discord.Intents.default()
 intents.members = True
 bot = commands.Bot(command_prefix='S_', intents=intents)
 bot.remove_command('help')
+
+Token = 'MTEzOTIzNDgyNzcyMDIwODQwNA.G9BkAS.c1jAB84NeJqVgjJuIEBSPkSwrDpaVmOCj9ug70'
+Streaming = f'{len(bot.guilds)} Servers! Mrawr!'
 
 @bot.event
 async def on_ready():
