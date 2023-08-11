@@ -11,7 +11,7 @@ class SFUNREGEN(discord.ui.View):
     def __init__(self):
         super().__init__(timeout=None)
 
-    @discord.ui.button(label="Again", custom_id="1", style=discord.ButtonStyle.danger)
+    @discord.ui.button(label="Again", custom_id="1", style=discord.ButtonStyle.blurple)
     async def again_button_callback(self, button, interaction):
         response = requests.get('https://randomfox.ca/floof/')
         json_fox = json.loads(response.text)
