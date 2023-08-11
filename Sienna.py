@@ -6,7 +6,7 @@ import peewee
 from peewee import *
 
 Token = 'MTEzOTIzNDgyNzcyMDIwODQwNA.G9BkAS.c1jAB84NeJqVgjJuIEBSPkSwrDpaVmOCj9ug70'
-Streaming = 'Pizza!'
+Streaming = 'Mrawr!'
 
 intents = discord.Intents.default()
 intents.members = True
@@ -17,8 +17,8 @@ bot.remove_command('help')
 async def on_ready():
     await bot.change_presence(status=discord.Status.idle, activity=discord.Game(name=Streaming))
 
-SMOD_DB = MySQLDatabase('railway', user='root', password='D2MaGZAwX3XwWcfUScOL',
-                         host='containers-us-west-44.railway.app', port=7835)
+SMOD_DB = MySQLDatabase('railway', user='root', password='gjSYlt0AJJiLoEaJPMgr',
+                         host='containers-us-west-120.railway.app', port=5989)
 class Language(Model):
     guild_id = BigIntegerField()
     lang = CharField(max_length=2)
