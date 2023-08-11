@@ -24,8 +24,6 @@ class Language(Model):
     lang = CharField(max_length=2)
     class Meta:
         database = SMOD_DB
-SMOD_DB.connect()
-SMOD_DB.create_tables([Language])
 class Notifications(Model):
     guild_id = BigIntegerField()
     channel_id = BigIntegerField()
