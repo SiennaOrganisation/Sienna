@@ -17,7 +17,7 @@ class SMODNOTIFEN(discord.ui.View):
         if getnotif is None:
             pass
         else:
-            delete = Notifications.get(Language.guild_id == interaction.guild_id)
+            delete = Notifications.get(Notifications.guild_id == interaction.guild_id)
             delete.delete_instance()
         Newnotification = Notifications.create(guild_id=interaction.guild_id, channel_id=select.values[0].id)
         settings = discord.Embed(title='Channel selection', colour=0xf1c40f)
@@ -39,7 +39,7 @@ class SMODNOTIFDE(discord.ui.View):
         if getnotif is None:
             pass
         else:
-            delete = Notifications.get(Language.guild_id == interaction.guild_id)
+            delete = Notifications.get(Notifications.guild_id == interaction.guild_id)
             delete.delete_instance()
         Newnotification = Notifications.create(guild_id=interaction.guild_id, channel_id=select.values[0].id)
         settings = discord.Embed(title='Kanalauswahl', colour=0xf1c40f)
