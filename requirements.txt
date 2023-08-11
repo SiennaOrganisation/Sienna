@@ -1,3 +1,4 @@
 py-cord
 PyMySQL
 peewee
+requests
