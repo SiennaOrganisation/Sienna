@@ -24,8 +24,8 @@ class SECOSELECTEN(discord.ui.View):
     async def select_callback(self, select, interaction):
         if select.values[0] == "Factory worker":
             salary = random.randint(1, 50)
-            for economy in Economy.select().where(Economy.guild_id == interaction.guild_id, Economy.user_id == interaction.user_id):
-                delete = Economy.get(Economy.guild_id == interaction.guild_id, Economy.user_id == interaction.user_id)
+            for economy in Economy.select().where(Economy.guild_id == interaction.guild_id, Economy.user_id == interaction.user.id):
+                delete = Economy.get(Economy.guild_id == interaction.guild_id, Economy.user_id == interaction.user.id)
                 delete.delete_instance()
                 neweco = Economy.create(guild_id=interaction.guild_id, user_id=interaction.user_id, amount=economy.amount + salary)
                 eco = discord.Embed(title='Work selection', colour=0xf1c40f)
@@ -41,11 +41,11 @@ class SECOSELECTEN(discord.ui.View):
             if luck < 9:
                 salary = random.randint(1, 150)
                 for economy in Economy.select().where(Economy.guild_id == interaction.guild_id,
-                                                      Economy.user_id == interaction.user_id):
+                                                      Economy.user_id == interaction.user.id):
                     delete = Economy.get(Economy.guild_id == interaction.guild_id,
-                                         Economy.user_id == interaction.user_id)
+                                         Economy.user_id == interaction.user.id)
                     delete.delete_instance()
-                    neweco = Economy.create(guild_id=interaction.guild_id, user_id=interaction.user_id,
+                    neweco = Economy.create(guild_id=interaction.guild_id, user_id=interaction.user.id,
                                             amount=economy.amount + salary)
                     eco = discord.Embed(title='Work selection', colour=0xf1c40f)
                     eco.add_field(name=f'**You have earned {salary} 💎, while running your business**',
@@ -82,10 +82,10 @@ class SECOSELECTDE(discord.ui.View):
     async def select_callback(self, select, interaction):
         if select.values[0] == "Fabrik Arbeiter":
             salary = random.randint(1, 50)
-            for economy in Economy.select().where(Economy.guild_id == interaction.guild_id, Economy.user_id == interaction.user_id):
-                delete = Economy.get(Economy.guild_id == interaction.guild_id, Economy.user_id == interaction.user_id)
+            for economy in Economy.select().where(Economy.guild_id == interaction.guild_id, Economy.user_id == interaction.user.id):
+                delete = Economy.get(Economy.guild_id == interaction.guild_id, Economy.user_id == interaction.user.id)
                 delete.delete_instance()
-                neweco = Economy.create(guild_id=interaction.guild_id, user_id=interaction.user_id, amount=economy.amount + salary)
+                neweco = Economy.create(guild_id=interaction.guild_id, user_id=interaction.user.id, amount=economy.amount + salary)
                 eco = discord.Embed(title='Arbeitsauswahl', colour=0xf1c40f)
                 eco.add_field(name=f'**Sie haben {salary} 💎, als Fabrikarbeiter bekommen**', value='**__________________**',
                                    inline=False)
@@ -99,11 +99,11 @@ class SECOSELECTDE(discord.ui.View):
             if luck < 9:
                 salary = random.randint(1, 150)
                 for economy in Economy.select().where(Economy.guild_id == interaction.guild_id,
-                                                      Economy.user_id == interaction.user_id):
+                                                      Economy.user_id == interaction.user.id):
                     delete = Economy.get(Economy.guild_id == interaction.guild_id,
-                                         Economy.user_id == interaction.user_id)
+                                         Economy.user_id == interaction.user.id)
                     delete.delete_instance()
-                    neweco = Economy.create(guild_id=interaction.guild_id, user_id=interaction.user_id,
+                    neweco = Economy.create(guild_id=interaction.guild_id, user_id=interaction.user.id,
                                             amount=economy.amount + salary)
                     eco = discord.Embed(title='Arbeitsauswahl', colour=0xf1c40f)
                     eco.add_field(name=f'**Sie haben {salary} 💎, während Sie Ihr Unternehmen geführt haben bekommen**',
@@ -127,7 +127,7 @@ class SECOBALANCEEN(discord.ui.View):
 
     @discord.ui.button(label="Balance", custom_id="1", style=discord.ButtonStyle.blurple)
     async def balance_button_callback(self, button, interaction):
-        for economy in Economy.select().where(Economy.guild_id == interaction.guild_id, Economy.user_id == interaction.user_id):
+        for economy in Economy.select().where(Economy.guild_id == interaction.guild_id, Economy.user_id == interaction.user.id):
             eco = discord.Embed(title='Your balance', colour=0xf1c40f)
             eco.add_field(name=f'**You have {economy.amount} 💎**',
                                value='**__________________**', inline=False)
@@ -141,7 +141,7 @@ class SECOBALANCEDE(discord.ui.View):
 
     @discord.ui.button(label="Kontostand", custom_id="1", style=discord.ButtonStyle.blurple)
     async def balance_button_callback(self, button, interaction):
-        for economy in Economy.select().where(Economy.guild_id == interaction.guild_id, Economy.user_id == interaction.user_id):
+        for economy in Economy.select().where(Economy.guild_id == interaction.guild_id, Economy.user_id == interaction.user.id):
             eco = discord.Embed(title='Ihr Kontostand', colour=0xf1c40f)
             eco.add_field(name=f'**Sie haben {economy.amount} 💎**',
                                value='**__________________**', inline=False)
@@ -182,7 +182,6 @@ class SECONOMY(commands.Cog):
         self.bot = bot
 
     @commands.slash_command(name="balance", description="check your balance")
-    @commands.has_permissions(administrator=True)
     async def balance(self, ctx):
         geteco = Economy.get_or_none(guild_id=ctx.guild.id, user_id=ctx.author.id)
         if geteco is None:
