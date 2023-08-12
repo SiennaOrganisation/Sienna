@@ -153,7 +153,7 @@ class SECOWORKEN(discord.ui.View):
     def __init__(self):
         super().__init__(timeout=None)
 
-    @discord.ui.button(label="Work", custom_id="1", style=discord.ButtonStyle.blurple, cooldown = 5)
+    @discord.ui.button(label="Work", custom_id="1", style=discord.ButtonStyle.blurple)
     async def work_button_callback(self, button, interaction):
         eco = discord.Embed(title='Choose preferred work', colour=0xf1c40f)
         await interaction.response.edit_message(embed=eco, view=SECOSELECTEN())
@@ -162,7 +162,7 @@ class SECOWORKDE(discord.ui.View):
     def __init__(self):
         super().__init__(timeout=None)
 
-    @discord.ui.button(label="Arbeit", custom_id="1", style=discord.ButtonStyle.blurple, cooldown = 5)
+    @discord.ui.button(label="Arbeit", custom_id="1", style=discord.ButtonStyle.blurple)
     async def work_button_callback(self, button, interaction):
         eco = discord.Embed(title='Wählen Sie Ihre bevorzugte Arbeit', colour=0xf1c40f)
         await interaction.response.edit_message(embed=eco, view=SECOSELECTDE())
