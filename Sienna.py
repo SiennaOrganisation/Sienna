@@ -34,7 +34,7 @@ for cog in cogs_list:
     bot.load_extension(f'{cog}')
 
 Token = 'MTEzOTIzNDgyNzcyMDIwODQwNA.G9BkAS.c1jAB84NeJqVgjJuIEBSPkSwrDpaVmOCj9ug70'
-Streaming = f'{len(list(bot.guilds))} Servers! Mrawr!'
+Streaming = f'{str(len(bot.guilds))} Servers! Mrawr!'
 
 @bot.event
 async def on_ready():
