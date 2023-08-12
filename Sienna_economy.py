@@ -27,7 +27,7 @@ class SECOSELECTEN(discord.ui.View):
             for economy in Economy.select().where(Economy.guild_id == interaction.guild_id, Economy.user_id == interaction.user.id):
                 delete = Economy.get(Economy.guild_id == interaction.guild_id, Economy.user_id == interaction.user.id)
                 delete.delete_instance()
-                neweco = Economy.create(guild_id=interaction.guild_id, user_id=interaction.user_id, amount=economy.amount + salary)
+                neweco = Economy.create(guild_id=interaction.guild_id, user_id=interaction.user.id, amount=economy.amount + salary)
                 eco = discord.Embed(title='Work selection', colour=0xf1c40f)
                 eco.add_field(name=f'**You have earned {salary} 💎, as a factory worker**', value='**__________________**',
                                    inline=False)
