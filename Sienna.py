@@ -34,11 +34,10 @@ for cog in cogs_list:
     bot.load_extension(f'{cog}')
 
 Token = 'MTEzOTIzNDgyNzcyMDIwODQwNA.G9BkAS.c1jAB84NeJqVgjJuIEBSPkSwrDpaVmOCj9ug70'
-ServerCount = len(bot.guilds))
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(status=discord.Status.idle, activity=discord.Game(name=f'I'm on {ServerCount} servers! Mrawr!'))
+    await bot.change_presence(status=discord.Status.idle, activity=discord.Game(name=f'Im on {len(bot.guilds))} servers! Mrawr!'))
 
 @bot.event
 async def on_guild_join(guild):
