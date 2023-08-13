@@ -187,7 +187,7 @@ class SECONOMY(commands.Cog):
                         await ctx.respond(embed=eco, ephemeral=True)
 
     @commands.slash_command(name="work", description="earn some more")
-    @commands.cooldown(1, 3600, commands.BucketType.user)
+    @commands.cooldown(1, 3600, commands.BucketType.guild)
     async def work(self, ctx):
         getlang = Language.get_or_none(guild_id=ctx.guild.id)
         if getlang is None:
