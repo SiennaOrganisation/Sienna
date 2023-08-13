@@ -183,7 +183,7 @@ class SMODSETBACKEN(discord.ui.View):
                            value='**__________________**', inline=False)
         settings.add_field(name='In order to do so, just click the needed button below!',
                            value='**__________________**', inline=False)
-        await interaction.response.send_message(embed=settings, view=SMODSETEN(), ephemeral=True)
+        await interaction.response.edit_message(embed=settings, view=SMODSETEN())
 
 class SMODSETBACKDE(discord.ui.View):
     def __init__(self):
@@ -196,7 +196,7 @@ class SMODSETBACKDE(discord.ui.View):
                            value='**__________________**', inline=False)
         settings.add_field(name='Klicken Sie dazu einfach unten auf die entsprechende Schaltfläche!',
                            value='**__________________**', inline=False)
-        await interaction.response.send_message(embed=settings, view=SMODSETDE(), ephemeral=True)
+        await interaction.response.edit_message(embed=settings, view=SMODSETDE())
 
 class SMOD(commands.Cog):
     def __init__(self, bot):
