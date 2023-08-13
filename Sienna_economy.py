@@ -133,7 +133,7 @@ class SECOBALANCEEN(discord.ui.View):
                                value='**__________________**', inline=False)
             eco.add_field(name='Want to have more? Type **/work**!',
                                value='**__________________**', inline=False)
-            await interaction.response.send_message(embed=eco, ephemeral=True)
+            await interaction.response.edit_message(embed=eco)
 
 class SECOBALANCEDE(discord.ui.View):
     def __init__(self):
@@ -147,7 +147,7 @@ class SECOBALANCEDE(discord.ui.View):
                                value='**__________________**', inline=False)
             eco.add_field(name='Lust auf mehr? Geben Sie **/work** ein!',
                                value='**__________________**', inline=False)
-            await interaction.response.send_message(embed=eco, ephemeral=True)
+            await interaction.response.edit_message(embed=eco)
 
 class SECONOMY(commands.Cog):
     def __init__(self, bot):
