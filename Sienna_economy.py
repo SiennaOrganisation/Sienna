@@ -192,15 +192,15 @@ class SECONOMY(commands.Cog):
         getlang = Language.get_or_none(guild_id=ctx.guild.id)
         if getlang is None:
             eco = discord.Embed(title='Choose preferred work', colour=0xf1c40f)
-            await ctx.respond(embed=eco, view=SECOSELECTEN())
+            await ctx.respond(embed=eco, view=SECOSELECTEN(), ephemeral=True)
         else:
             for language in Language.select().where(Language.guild_id == ctx.guild.id):
                 if language.lang == 'en':
                     eco = discord.Embed(title='Choose preferred work', colour=0xf1c40f)
-                    await ctx.respond(embed=eco, view=SECOSELECTEN())
+                    await ctx.respond(embed=eco, view=SECOSELECTEN(), ephemeral=True)
                 else:
                     eco = discord.Embed(title='Wählen Sie Ihre bevorzugte Arbeit', colour=0xf1c40f)
-                    await ctx.respond(embed=eco, view=SECOSELECTDE())
+                    await ctx.respond(embed=eco, view=SECOSELECTDE(), ephemeral=True)
 
     @commands.slash_command(name="transfer", description="transfer your credits to someone")
     async def transfer(self, ctx, user: discord.Member, amount: int):
