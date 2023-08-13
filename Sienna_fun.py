@@ -24,7 +24,6 @@ class SFUN(commands.Cog):
         self.bot = bot
 
     @commands.slash_command(name="fox", description="Cute foxes included :3")
-    @commands.has_permissions(ban_members=True)
     async def fox(self, ctx):
         response = requests.get('https://randomfox.ca/floof/')
         json_fox = json.loads(response.text)
