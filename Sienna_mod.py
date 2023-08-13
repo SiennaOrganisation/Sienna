@@ -183,20 +183,20 @@ class SMODSETBACKEN(discord.ui.View):
                            value='**__________________**', inline=False)
         settings.add_field(name='In order to do so, just click the needed button below!',
                            value='**__________________**', inline=False)
-        await interaction.response.edit_message(embed=settings, view=SMODSETEN())
+        await interaction.response.send_message(embed=settings, view=SMODSETEN(), ephemeral=True)
 
 class SMODSETBACKDE(discord.ui.View):
     def __init__(self):
         super().__init__(timeout=None)
 
-    @discord.ui.button(label="Dashboard", custom_id="1", style=discord.ButtonStyle.danger)
+    @discord.ui.button(label="Dashboard", custom_id="1", style=discord.ButtonStyle.blurple)
     async def dashboard_button_callback(self, button, interaction):
         settings = discord.Embed(title='Dashboard', colour=0xf1c40f)
         settings.add_field(name='**Hier können Sie alle verfügbaren Funktionen ändern**',
                            value='**__________________**', inline=False)
         settings.add_field(name='Klicken Sie dazu einfach unten auf die entsprechende Schaltfläche!',
                            value='**__________________**', inline=False)
-        await interaction.response.edit_message(embed=settings, view=SMODSETDE())
+        await interaction.response.send_message(embed=settings, view=SMODSETDE(), ephemeral=True)
 
 class SMOD(commands.Cog):
     def __init__(self, bot):
@@ -210,7 +210,7 @@ class SMOD(commands.Cog):
             settings = discord.Embed(title='Dashboard', colour=0xf1c40f)
             settings.add_field(name='**Here you can modify all functions available**', value='**__________________**', inline=False)
             settings.add_field(name='In order to do so, just click the needed button below!', value='**__________________**', inline=False)
-            await ctx.respond(embed=settings, view=SMODSETEN())
+            await ctx.respond(embed=settings, view=SMODSETEN(), ephemeral=True)
         else:
             for language in Language.select().where(Language.guild_id == ctx.guild.id):
                 if language.lang == 'en':
@@ -219,14 +219,14 @@ class SMOD(commands.Cog):
                                        value='**__________________**', inline=False)
                     settings.add_field(name='In order to do so, just click the needed button below!',
                                        value='**__________________**', inline=False)
-                    await ctx.respond(embed=settings, view=SMODSETEN())
+                    await ctx.respond(embed=settings, view=SMODSETEN(), ephemeral=True)
                 else:
                     settings = discord.Embed(title='Dashboard', colour=0xf1c40f)
                     settings.add_field(name='**Hier können Sie alle verfügbaren Funktionen ändern**',
                                        value='**__________________**', inline=False)
                     settings.add_field(name='Klicken Sie dazu einfach unten auf die entsprechende Schaltfläche!',
                                        value='**__________________**', inline=False)
-                    await ctx.respond(embed=settings, view=SMODSETDE())
+                    await ctx.respond(embed=settings, view=SMODSETDE(), ephemeral=True)
 
 def setup(bot):
     bot.add_cog(SMOD(bot))
