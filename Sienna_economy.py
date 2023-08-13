@@ -33,7 +33,7 @@ class SECOSELECTEN(discord.ui.View):
                                    inline=False)
                 eco.add_field(name='Check your balance by clicking **Balance** below',
                                    value='**__________________**', inline=False)
-                await interaction.response.edit_message(embed=eco, view=SECOBALANCEEN(), ephemeral=True)
+                await interaction.response.edit_message(embed=eco, view=SECOBALANCEEN())
 
 
         elif select.values[0] == "Run your own business":
@@ -53,7 +53,7 @@ class SECOSELECTEN(discord.ui.View):
                                        inline=False)
                     eco.add_field(name='Check your balance by clicking **Balance** below',
                                        value='**__________________**', inline=False)
-                    await interaction.response.edit_message(embed=eco, view=SECOBALANCEEN(), ephemeral=True)
+                    await interaction.response.edit_message(embed=eco, view=SECOBALANCEEN())
             else:
                 eco = discord.Embed(title='Work selection', colour=0xf1c40f)
                 eco.add_field(name=f'**Your business has sadly failed :(**',
@@ -61,7 +61,7 @@ class SECOSELECTEN(discord.ui.View):
                                    inline=False)
                 eco.add_field(name='Check your balance by clicking **Balance** below',
                                    value='**__________________**', inline=False)
-                await interaction.response.edit_message(embed=eco, view=SECOBALANCEEN(), ephemeral=True)
+                await interaction.response.edit_message(embed=eco, view=SECOBALANCEEN())
 
 class SECOSELECTDE(discord.ui.View):
     @discord.ui.select(
@@ -91,7 +91,7 @@ class SECOSELECTDE(discord.ui.View):
                                    inline=False)
                 eco.add_field(name='Überprüfen Sie Ihr Kontostand, indem Sie unten auf **Kontostand** klicken',
                                    value='**__________________**', inline=False)
-                await interaction.response.edit_message(embed=eco, view=SECOBALANCEDE(), ephemeral=True)
+                await interaction.response.edit_message(embed=eco, view=SECOBALANCEDE())
 
 
         elif select.values[0] == "Ihr eigenes Unternehmen führen":
@@ -111,7 +111,7 @@ class SECOSELECTDE(discord.ui.View):
                                        inline=False)
                     eco.add_field(name='Überprüfen Sie Ihr Kontostand, indem Sie unten auf **Kontostand** klicken',
                                        value='**__________________**', inline=False)
-                    await interaction.response.edit_message(embed=eco, view=SECOBALANCEDE(), ephemeral=True)
+                    await interaction.response.edit_message(embed=eco, view=SECOBALANCEDE())
             else:
                 eco = discord.Embed(title='Arbeitsauswahl', colour=0xf1c40f)
                 eco.add_field(name=f'**Ihr Unternehmen ist leider gescheitert :(**',
@@ -119,7 +119,7 @@ class SECOSELECTDE(discord.ui.View):
                                    inline=False)
                 eco.add_field(name='Überprüfen Sie Ihr Kontostand, indem Sie unten auf **Kontostand** klicken',
                                    value='**__________________**', inline=False)
-                await interaction.response.edit_message(embed=eco, view=SECOBALANCEDE(), ephemeral=True)
+                await interaction.response.edit_message(embed=eco, view=SECOBALANCEDE())
 
 class SECOBALANCEEN(discord.ui.View):
     def __init__(self):
@@ -191,15 +191,15 @@ class SECONOMY(commands.Cog):
         getlang = Language.get_or_none(guild_id=ctx.guild.id)
         if getlang is None:
             eco = discord.Embed(title='Choose preferred work', colour=0xf1c40f)
-            await ctx.respond(embed=eco, view=SECOSELECTEN(), ephemeral=True)
+            await ctx.respond(embed=eco, view=SECOSELECTEN())
         else:
             for language in Language.select().where(Language.guild_id == ctx.guild.id):
                 if language.lang == 'en':
                     eco = discord.Embed(title='Choose preferred work', colour=0xf1c40f)
-                    await ctx.respond(embed=eco, view=SECOSELECTEN(), ephemeral=True)
+                    await ctx.respond(embed=eco, view=SECOSELECTEN())
                 else:
                     eco = discord.Embed(title='Wählen Sie Ihre bevorzugte Arbeit', colour=0xf1c40f)
-                    await ctx.respond(embed=eco, view=SECOSELECTDE(), ephemeral=True)
+                    await ctx.respond(embed=eco, view=SECOSELECTDE())
 
 def setup(bot):
     bot.add_cog(SECONOMY(bot))
