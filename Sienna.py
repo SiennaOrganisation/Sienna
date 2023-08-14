@@ -34,10 +34,6 @@ intents = discord.Intents.default()
 intents.members = True
 bot = commands.Bot(command_prefix='S_', intents=intents)
 bot.remove_command('help')
-bot.load_extension('Sienna_mod')
-bot.load_extension('Sienna_base_utils')
-bot.load_extension('Sienna_fun')
-bot.load_extension('Sienna_economy')
 
 Token = 'MTEzOTIzNDgyNzcyMDIwODQwNA.GO4VhI.XWRBFPYqpou7aThe84SnsI0YE3dLHQhJpN3FuA'
 @bot.event
