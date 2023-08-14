@@ -45,8 +45,6 @@ cogs_list = [
 for cog in cogs_list:
     bot.load_extension(f'{cog}')
 
-Token = 'MTEzOTIzNDgyNzcyMDIwODQwNA.G9BkAS.c1jAB84NeJqVgjJuIEBSPkSwrDpaVmOCj9ug70'
-
 @bot.event
 async def on_ready():
     await bot.change_presence(status=discord.Status.idle, activity=discord.Game(name=f'Im on {len(bot.guilds)} servers! Mrawr!'))
@@ -152,4 +150,4 @@ async def on_application_command_error(ctx, error):
     else:
         raise error
 
-bot.run(Token)
+bot.run('MTEzOTIzNDgyNzcyMDIwODQwNA.GDiTJW.1doTop_H3cYD8hmeJZ8IYGzO8awko_mG2xs24s')
