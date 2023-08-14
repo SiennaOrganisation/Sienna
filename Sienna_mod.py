@@ -265,7 +265,7 @@ class SMOD(commands.Cog):
             settings.add_field(name='**Settings/Moderation**',
                                value='Type **/settings**, in order to modify all functions available', inline=False)
             settings.add_field(name='**Current Status**',
-                               value=f'Servers: {len(bot.guilds)}', inline=False)
+                               value=f'Servers: {len(self.bot.guilds)}', inline=False)
             settings.set_thumbnail(url='https://cdn.discordapp.com/avatars/1139234827720208404/b086c35d8039890dcdae4edf97faaba4.png?size=512')
             await ctx.respond(embed=settings, view=SMODCREDITEN)
         else:
@@ -277,7 +277,7 @@ class SMOD(commands.Cog):
                     settings.add_field(name='**Settings/Moderation**',
                                        value='Type **/settings**, in order to modify all functions available', inline=False)
                     settings.add_field(name='**Current Status**',
-                                       value=f'Servers: {len(bot.guilds)}', inline=False)
+                                       value=f'Servers: {len(self.bot.guilds)}', inline=False)
                     settings.set_thumbnail(url='https://cdn.discordapp.com/avatars/1139234827720208404/b086c35d8039890dcdae4edf97faaba4.png?size=512')
                     await ctx.respond(embed=settings, view=SMODCREDITEN)
                 else:
@@ -287,7 +287,7 @@ class SMOD(commands.Cog):
                     settings.add_field(name='**Einstellungen/Moderation**',
                                        value='Geben Sie **/settings** ein, um alle verfügbaren Funktionen zu ändern', inline=False)
                     settings.add_field(name='**Aktueller Status**',
-                                       value=f'Servers: {len(bot.guilds)}', inline=False)
+                                       value=f'Servers: {len(self.bot.guilds)}', inline=False)
                     settings.set_thumbnail(url='https://cdn.discordapp.com/avatars/1139234827720208404/b086c35d8039890dcdae4edf97faaba4.png?size=512')
                     await ctx.respond(embed=settings, view=SMODCREDITDE)
 
