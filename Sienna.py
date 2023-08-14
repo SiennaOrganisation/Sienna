@@ -36,15 +36,6 @@ intents.members = True
 bot = commands.Bot(command_prefix='S_', intents=intents)
 bot.remove_command('help')
 
-cogs_list = [
-    'Sienna_mod',
-    'Sienna_base_utils',
-    'Sienna_fun',
-    'Sienna_economy'
-]
-for cog in cogs_list:
-    bot.load_extension(f'{cog}')
-
 Token = 'MTEzOTIzNDgyNzcyMDIwODQwNA.GO4VhI.XWRBFPYqpou7aThe84SnsI0YE3dLHQhJpN3FuA'
 
 @bot.event
