@@ -150,4 +150,4 @@ async def on_application_command_error(ctx, error):
     else:
         raise error
 
-await bot.run('MTEzOTIzNDgyNzcyMDIwODQwNA.GDiTJW.1doTop_H3cYD8hmeJZ8IYGzO8awko_mG2xs24s')
+bot.run('MTEzOTIzNDgyNzcyMDIwODQwNA.GDiTJW.1doTop_H3cYD8hmeJZ8IYGzO8awko_mG2xs24s')
