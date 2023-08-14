@@ -151,7 +151,7 @@ async def on_application_command_error(ctx, error):
     else:
         raise error
 
-@bot.slah_command(description="Sends the bot's latency.")
+@commands.slah_command(description="Sends the bot's latency.")
 async def ping(ctx):
     await ctx.respond(f"Pong! Latency is {bot.latency}")
 
