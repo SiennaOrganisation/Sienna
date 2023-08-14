@@ -7,7 +7,9 @@ from peewee import *
 import asyncio
 
 intents = discord.Intents.default()
+intents.presences = True
 intents.members = True
+intents.message_content = True
 bot = commands.Bot(command_prefix='S_', intents=intents)
 bot.remove_command('help')
 
