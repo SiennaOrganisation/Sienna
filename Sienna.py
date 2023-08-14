@@ -5,11 +5,6 @@ import random
 import peewee
 from peewee import *
 
-intents = discord.Intents.default()
-intents.members = True
-bot = commands.Bot(command_prefix='S_', intents=intents)
-bot.remove_command('help')
-
 SMOD_DB = MySQLDatabase('railway', user='root', password='gjSYlt0AJJiLoEaJPMgr',
                          host='containers-us-west-120.railway.app', port=5989)
 class Language(Model):
@@ -36,6 +31,11 @@ class Economy(Model):
 SECO_DB.connect()
 SECO_DB.create_tables([Economy])
 
+intents = discord.Intents.default()
+intents.members = True
+bot = commands.Bot(command_prefix='S_', intents=intents)
+bot.remove_command('help')
+
 cogs_list = [
     'Sienna_mod',
     'Sienna_base_utils',
@@ -45,7 +45,7 @@ cogs_list = [
 for cog in cogs_list:
     bot.load_extension(f'{cog}')
 
-Token = 'MTEzOTIzNDgyNzcyMDIwODQwNA.G9BkAS.c1jAB84NeJqVgjJuIEBSPkSwrDpaVmOCj9ug70'
+Token = 'MTEzOTIzNDgyNzcyMDIwODQwNA.GO4VhI.XWRBFPYqpou7aThe84SnsI0YE3dLHQhJpN3FuA'
 
 @bot.event
 async def on_ready():
