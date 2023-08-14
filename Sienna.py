@@ -142,8 +142,6 @@ async def on_application_command_error(ctx, error):
                     await ctx.respond(embed=eco, ephemeral=True)
     else:
         raise error
-
-bot.run(Token)
 cogs_list = [
     'Sienna_mod',
     'Sienna_base_utils',
@@ -152,3 +150,4 @@ cogs_list = [
 ]
 for cog in cogs_list:
     bot.load_extension(f'{cog}')
+bot.run(Token)
