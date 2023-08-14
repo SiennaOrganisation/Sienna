@@ -129,7 +129,7 @@ async def on_member_join(member):
                         await channel.send(embed=leave)
 
 @bot.event
-async def on_application_command_error(ctx, error):
+async def on_application_command_error(self, ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
         getlang = Language.get_or_none(guild_id=ctx.guild.id)
         if getlang is None:
