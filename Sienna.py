@@ -150,4 +150,6 @@ async def on_application_command_error(ctx, error):
     else:
         raise error
 
-bot.run('MTEzOTIzNDgyNzcyMDIwODQwNA.GDiTJW.1doTop_H3cYD8hmeJZ8IYGzO8awko_mG2xs24s')
+async def main():
+  await login('MTEzOTIzNDgyNzcyMDIwODQwNA.GDiTJW.1doTop_H3cYD8hmeJZ8IYGzO8awko_mG2xs24s')
+asyncio.run(main())
