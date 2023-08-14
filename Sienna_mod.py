@@ -206,9 +206,9 @@ class SMODCREDITEN(discord.ui.View):
     async def credit_button_callback(self, button, interaction):
         settings = discord.Embed(title='Dev team', colour=0xf1c40f)
         settings.add_field(name='**Main developer, project manager**',
-                           value='**Mester Satellite**', inline=False)
+                           value='```Mester Satellite```', inline=False)
         settings.add_field(name='Advisor',
-                           value='**Kyle Kondos**', inline=False)
+                           value='```Kyle Kondos```', inline=False)
         await interaction.response.edit_message(embed=settings, view=None)
 
 class SMODCREDITDE(discord.ui.View):
@@ -218,10 +218,10 @@ class SMODCREDITDE(discord.ui.View):
     @discord.ui.button(label="Credits", custom_id="1", style=discord.ButtonStyle.blurple)
     async def credit_button_callback(self, button, interaction):
         settings = discord.Embed(title='Dev team', colour=0xf1c40f)
-        settings.add_field(name='**Main developer, project manager**',
-                           value='**Mester Satellite**', inline=False)
-        settings.add_field(name='Advisor',
-                           value='**Kyle Kondos**', inline=False)
+        settings.add_field(name='**Hauptentwickler, Projektmanager**',
+                           value='```Mester Satellite```', inline=False)
+        settings.add_field(name='Berater',
+                           value='```Kyle Kondos```', inline=False)
         await interaction.response.edit_message(embed=settings, view=None)
 
 class SMOD(commands.Cog):
