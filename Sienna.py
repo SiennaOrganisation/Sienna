@@ -31,18 +31,17 @@ class Economy(Model):
 SECO_DB.connect()
 SECO_DB.create_tables([Economy])
 
+bot.load_extension('Sienna_mod')
+bot.load_extension('Sienna_base_utils')
+bot.load_extension('Sienna_fun')
+bot.load_extension('Sienna_economy')
+
 intents = discord.Intents.default()
 intents.members = True
 bot = commands.Bot(command_prefix='S_', intents=intents)
 bot.remove_command('help')
 
 Token = 'MTEzOTIzNDgyNzcyMDIwODQwNA.GO4VhI.XWRBFPYqpou7aThe84SnsI0YE3dLHQhJpN3FuA'
-
-bot.load_extension('Sienna_mod')
-bot.load_extension('Sienna_base_utils')
-bot.load_extension('Sienna_fun')
-bot.load_extension('Sienna_economy')
-
 @bot.event
 async def on_ready():
     await bot.change_presence(status=discord.Status.idle, activity=discord.Game(name=f'Im on {len(bot.guilds)} servers! Mrawr!'))
