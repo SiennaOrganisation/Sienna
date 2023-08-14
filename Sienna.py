@@ -4,6 +4,7 @@ import pymysql
 import random
 import peewee
 from peewee import *
+import time
 
 SMOD_DB = MySQLDatabase('railway', user='root', password='gjSYlt0AJJiLoEaJPMgr',
                          host='containers-us-west-120.railway.app', port=5989)
@@ -38,6 +39,8 @@ intents = discord.Intents.default()
 intents.members = True
 bot = commands.Bot(command_prefix='S_', intents=intents)
 bot.remove_command('help')
+
+time.sleep(1000)
 
 for extension in initial_extensions:
         bot.load_extension(extension)
