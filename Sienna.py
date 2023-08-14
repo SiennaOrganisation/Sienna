@@ -38,16 +38,14 @@ bot.remove_command('help')
 
 Token = 'MTEzOTIzNDgyNzcyMDIwODQwNA.GO4VhI.XWRBFPYqpou7aThe84SnsI0YE3dLHQhJpN3FuA'
 
+bot.load_extension('Sienna_mod')
+bot.load_extension('Sienna_base_utils')
+bot.load_extension('Sienna_fun')
+bot.load_extension('Sienna_economy')
+
 @bot.event
 async def on_ready():
     await bot.change_presence(status=discord.Status.idle, activity=discord.Game(name=f'Im on {len(bot.guilds)} servers! Mrawr!'))
-    cogs_list = [
-    'Sienna_mod',
-    'Sienna_base_utils',
-    'Sienna_fun',
-    'Sienna_economy']
-    for cog in cogs_list:
-      bot.load_extension(f'{cog}')
 
 @bot.event
 async def on_guild_join(guild):
