@@ -4,6 +4,7 @@ import pymysql
 import random
 import peewee
 from peewee import *
+import asyncio
 
 intents = discord.Intents.default()
 intents.members = True
