@@ -58,7 +58,7 @@ async def on_guild_join(guild):
     greet = discord.Embed(title='Hello there!', colour=0xf1c40f)
     greet.set_thumbnail(url='https://cdn.discordapp.com/avatars/1139234827720208404/b086c35d8039890dcdae4edf97faaba4.png?size=512')
     greet.add_field(name='**Thank you so much for adding me to your server! :3**',
-                    value='Execute **/settings** command on your server in order to explore all my features! ^w^',
+                    value='Execute **/help** command on your server in order to explore all my features! ^w^',
                     inline=False)
     greet.add_field(name='____________________',
                     value='You can join my support server as well, there you will have all your questions answered! :p Have a nice day!',
