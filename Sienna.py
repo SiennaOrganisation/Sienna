@@ -43,6 +43,10 @@ Token = 'MTEzOTIzNDgyNzcyMDIwODQwNA.GO4VhI.XWRBFPYqpou7aThe84SnsI0YE3dLHQhJpN3Fu
 @bot.event
 async def on_ready():
     await bot.change_presence(status=discord.Status.idle, activity=discord.Game(name=f'Im on {len(bot.guilds)} servers! Mrawr!'))
+    await bot.load_extension('Sienna_mod')
+    await bot.load_extension('Sienna_base_utils')
+    await bot.load_extension('Sienna_fun')
+    await bot.load_extension('Sienna_economy')
 
 @bot.event
 async def on_guild_join(guild):
