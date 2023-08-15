@@ -4,8 +4,12 @@ import pymysql
 import random
 import peewee
 from peewee import *
+from playhouse.shortcuts import ReconnectMixin
 
-SMOD_DB = MySQLDatabase('railway', user='root', password='gjSYlt0AJJiLoEaJPMgr',
+class ReconnectMySQLDatabase(ReconnectMixin, MySQLDatabase):
+    pass
+
+SMOD_DB = ReconnectMySQLDatabase('railway', user='root', password='gjSYlt0AJJiLoEaJPMgr',
                          host='containers-us-west-120.railway.app', port=5989)
 class Language(Model):
     guild_id = BigIntegerField()
@@ -20,7 +24,7 @@ class Notifications(Model):
 SMOD_DB.connect()
 SMOD_DB.create_tables([Language, Notifications])
 
-SECO_DB = MySQLDatabase('railway', user='root', password='xcoGDuHDzdLRZfOJx7wo',
+SECO_DB = ReconnectMySQLDatabase('railway', user='root', password='xcoGDuHDzdLRZfOJx7wo',
                          host='containers-us-west-150.railway.app', port=7340)
 class Economy(Model):
     guild_id = BigIntegerField()
