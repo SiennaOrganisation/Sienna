@@ -71,6 +71,10 @@ async def on_guild_join(guild):
     await user.send(embed=greet)
 
 @bot.event
+async def on_guild_remove(guild):
+    await bot.change_presence(status=discord.Status.idle, activity=discord.Game(name=f'Im on {len(bot.guilds)} servers! Mrawr!'))
+
+@bot.event
 async def on_member_remove(member):
     getnotif = Notifications.get_or_none(guild_id=member.guild.id)
     if getnotif is None:
