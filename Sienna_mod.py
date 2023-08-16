@@ -255,7 +255,6 @@ class SMOD(commands.Cog):
                     await ctx.respond(embed=settings, view=SMODSETDE(), ephemeral=True)
 
     @commands.slash_command(name="help", description="help command")
-    @commands.has_permissions(administrator=True)
     async def help(self, ctx):
         getlang = Language.get_or_none(guild_id=ctx.guild.id)
         if getlang is None:
