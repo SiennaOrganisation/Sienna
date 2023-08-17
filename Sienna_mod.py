@@ -210,7 +210,7 @@ class SMODREPORTEN(discord.ui.Modal):
         settings = discord.Embed(title='Bug report sent', colour=0xf1c40f)
         settings.add_field(name='**Developers will review your report soon**',
                            value='**__________________**', inline=False)
-        await interaction.response.edit_message(embed=settings)
+        await interaction.response.edit_message(embed=settings, view=None)
         report = discord.Embed(title='Bug report received', colour=0xf1c40f)
         report.add_field(name='**Please describe the bug**',
                            value=self.children[0].value, inline=False)
@@ -228,7 +228,7 @@ class SMODREPORTDE(discord.ui.Modal):
         settings = discord.Embed(title='Fehlerbericht gesendet', colour=0xf1c40f)
         settings.add_field(name='**Developers werden Ihren Bericht bald überprüfen**',
                            value='**__________________**', inline=False)
-        await interaction.response.edit_message(embed=settings)
+        await interaction.response.edit_message(embed=settings, view=None)
         report = discord.Embed(title='Fehlerbericht erhalten', colour=0xf1c40f)
         report.add_field(name='**Bitte beschreiben Sie den Fehler**',
                            value=self.children[0].value, inline=False)
