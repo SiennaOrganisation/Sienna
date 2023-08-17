@@ -201,6 +201,7 @@ class SMODSETBACKDE(discord.ui.View):
 class SMODREPORTEN(discord.ui.Modal):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
+        self.bot = bot
 
         self.add_item(discord.ui.InputText(label="Please describe the bug", style=discord.InputTextStyle.long))
 
@@ -218,6 +219,7 @@ class SMODREPORTEN(discord.ui.Modal):
 class SMODREPORTDE(discord.ui.Modal):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
+        self.bot = bot
 
         self.add_item(discord.ui.InputText(label="Bitte beschreiben Sie den Fehler", style=discord.InputTextStyle.long))
 
