@@ -3,7 +3,7 @@ from discord.ext import commands
 import random
 import peewee
 from peewee import *
-from Sienna import Language, Notifications
+from Sienna import Language, Notifications, bot
 
 class SMODNOTIFEN(discord.ui.View):
     @discord.ui.select(
@@ -206,7 +206,7 @@ class SMODREPORTEN(discord.ui.Modal):
         self.add_item(discord.ui.InputText(label="Please describe the bug", style=discord.InputTextStyle.long))
 
     async def callback(self, interaction: discord.Interaction):
-        channel = self.bot.get_channel(1141774982268076042)
+        channel = bot.get_channel(1141774982268076042)
         settings = discord.Embed(title='Bug report sent', colour=0xf1c40f)
         settings.add_field(name='**Developers will review your report soon**',
                            value='**__________________**', inline=False)
@@ -224,7 +224,7 @@ class SMODREPORTDE(discord.ui.Modal):
         self.add_item(discord.ui.InputText(label="Bitte beschreiben Sie den Fehler", style=discord.InputTextStyle.long))
 
     async def callback(self, interaction: discord.Interaction):
-        channel = self.bot.get_channel(1141774982268076042)
+        channel = bot.get_channel(1141774982268076042)
         settings = discord.Embed(title='Fehlerbericht gesendet', colour=0xf1c40f)
         settings.add_field(name='**Developers werden Ihren Bericht bald überprüfen**',
                            value='**__________________**', inline=False)
