@@ -105,8 +105,8 @@ class SAR(discord.ui.View):
     def __init__(self):
         super().__init__(timeout=None)
 
-    @commands.slash_command(name="AR_Dashboard", description="Dev only")
-    async def AR_Dashboard(self, ctx):
+    @commands.slash_command(name="ar_dashboard", description="Dev only")
+    async def ar_dashboard(self, ctx):
         if ctx.author.id != 830486806478848040:
             getlang = Language.get_or_none(guild_id=ctx.guild.id)
             if getlang is None:
