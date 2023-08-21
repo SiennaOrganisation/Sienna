@@ -9,8 +9,8 @@ from playhouse.shortcuts import ReconnectMixin
 class ReconnectMySQLDatabase(ReconnectMixin, MySQLDatabase):
     pass
 
-SMOD_DB = ReconnectMySQLDatabase('railway', user='root', password='gjSYlt0AJJiLoEaJPMgr',
-                         host='containers-us-west-120.railway.app', port=5989)
+SMOD_DB = ReconnectMySQLDatabase('railway', user='root', password='X7cfVHBMAia5YaKhdkgD',
+                         host='containers-us-west-75.railway.app', port=7732)
 class Language(Model):
     guild_id = BigIntegerField()
     lang = CharField(max_length=2)
