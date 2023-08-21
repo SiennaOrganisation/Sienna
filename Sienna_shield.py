@@ -101,9 +101,9 @@ class SARSELECTDE(discord.ui.View):
     async def remove_button_callback(self, button, interaction):
         await interaction.response.send_modal(SARDElDE(title='Raider entfernen'))
 
-class SAR(discord.ui.View):
-    def __init__(self):
-        super().__init__(timeout=None)
+class SAR(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
 
     @commands.slash_command(name="ar_dashboard", description="Dev only")
     async def ar_dashboard(self, ctx):
