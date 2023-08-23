@@ -257,7 +257,7 @@ class SMODSETEN(discord.ui.View):
         await interaction.response.edit_message(embed=settings, view=SMODNOTIFEN())
 
     @discord.ui.button(label="Protection", custom_id="3", style=discord.ButtonStyle.blurple)
-    async def notifications_button_callback(self, button, interaction):
+    async def protection_button_callback(self, button, interaction):
         settings = discord.Embed(title='Select preferable action against raiders', colour=0xf1c40f)
         await interaction.response.edit_message(embed=settings, view=SMODPROTECTEN())
 
@@ -276,9 +276,9 @@ class SMODSETDE(discord.ui.View):
         await interaction.response.edit_message(embed=settings, view=SMODNOTIFDE())
 
     @discord.ui.button(label="Schutz", custom_id="3", style=discord.ButtonStyle.blurple)
-    async def notifications_button_callback(self, button, interaction):
+    async def protection_button_callback(self, button, interaction):
         settings = discord.Embed(title='Wählen Sie die bevorzugte Aktion gegen Raiders', colour=0xf1c40f)
-        await interaction.response.edit_message(embed=settings, view=SMODPROTECTDE)
+        await interaction.response.edit_message(embed=settings, view=SMODPROTECTDE())
 
 class SMODSETBACKEN(discord.ui.View):
     def __init__(self):
