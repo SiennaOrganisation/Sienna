@@ -162,7 +162,7 @@ class SMODPROTECTEN(discord.ui.View):
     )
     async def select_callback(self, select, interaction):
         if select.values[0] == "Ban":
-            getaction = Actions.select(guild_id=interaction.guild_id)
+            getaction = Actions.select().where(guild_id=interaction.guild_id)
             if getaction is None:
                 newaction = Actions.create(guild_id=interaction.guild_id, action='ban')
             else:
@@ -178,7 +178,7 @@ class SMODPROTECTEN(discord.ui.View):
             await interaction.response.edit_message(embed=settings, view=SMODSETBACKEN())
 
         elif select.values[0] == "Kick":
-            getaction = Actions.select(guild_id=interaction.guild_id)
+            getaction = Actions.select().where(guild_id=interaction.guild_id)
             if getaction is None:
                 newaction = Actions.create(guild_id=interaction.guild_id, action='kick')
             else:
@@ -211,7 +211,7 @@ class SMODPROTECTDE(discord.ui.View):
     )
     async def select_callback(self, select, interaction):
         if select.values[0] == "Ban":
-            getaction = Actions.select(guild_id=interaction.guild_id)
+            getaction = Actions.select().where(guild_id=interaction.guild_id)
             if getaction is None:
                 newaction = Actions.create(guild_id=interaction.guild_id, action='ban')
             else:
@@ -227,7 +227,7 @@ class SMODPROTECTDE(discord.ui.View):
             await interaction.response.edit_message(embed=settings, view=SMODSETBACKDE())
 
         elif select.values[0] == "Kick":
-            getaction = Actions.select(guild_id=interaction.guild_id)
+            getaction = Actions.select().where(guild_id=interaction.guild_id)
             if getaction is None:
                 newaction = Actions.create(guild_id=interaction.guild_id, action='kick')
             else:
