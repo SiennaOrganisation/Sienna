@@ -169,7 +169,6 @@ class SMODPROTECTEN(discord.ui.View):
                 delete = Actions.get(Actions.guild_id == interaction.guild_id)
                 delete.delete_instance()
                 newaction = Actions.create(guild_id=interaction.guild_id, action='ban')
-            Newlanguage = Language.create(guild_id=interaction.guild_id, lang='en')
             settings = discord.Embed(title='Action selection', colour=0xf1c40f)
             settings.add_field(name='**Action ban selected**', value='**__________________**',
                                inline=False)
@@ -185,7 +184,6 @@ class SMODPROTECTEN(discord.ui.View):
                 delete = Actions.get(Actions.guild_id == interaction.guild_id)
                 delete.delete_instance()
                 newaction = Actions.create(guild_id=interaction.guild_id, action='kick')
-            Newlanguage = Language.create(guild_id=interaction.guild_id, lang='de')
             settings = discord.Embed(title='Action selection', colour=0xf1c40f)
             settings.add_field(name='**Action kick selected**', value='**__________________**',
                                inline=False)
@@ -218,7 +216,6 @@ class SMODPROTECTDE(discord.ui.View):
                 delete = Actions.get(Actions.guild_id == interaction.guild_id)
                 delete.delete_instance()
                 newaction = Actions.create(guild_id=interaction.guild_id, action='ban')
-            Newlanguage = Language.create(guild_id=interaction.guild_id, lang='en')
             settings = discord.Embed(title='Aktionsauswahl', colour=0xf1c40f)
             settings.add_field(name='**Aktion ban ausgewählt**', value='**__________________**',
                                inline=False)
@@ -234,7 +231,6 @@ class SMODPROTECTDE(discord.ui.View):
                 delete = Actions.get(Actions.guild_id == interaction.guild_id)
                 delete.delete_instance()
                 newaction = Actions.create(guild_id=interaction.guild_id, action='kick')
-            Newlanguage = Language.create(guild_id=interaction.guild_id, lang='de')
             settings = discord.Embed(title='Aktionsauswahl', colour=0xf1c40f)
             settings.add_field(name='**Aktion kick ausgewählt**', value='**__________________**',
                                inline=False)
