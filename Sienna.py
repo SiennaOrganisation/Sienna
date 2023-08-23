@@ -145,7 +145,7 @@ async def on_member_join(member):
         israider = 'True'
     getaction = Actions.get_or_none(guild_id=member.guild.id)
     if getaction is None:
-        pass
+        isspecified = 'None'
     else:
         for actions in Actions.select().where(Actions.guild_id == member.guild.id):
             if actions.action == 'ban':
