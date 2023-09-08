@@ -61,7 +61,7 @@ class SMODLANGEN(discord.ui.View):
                 description=""
             ),
             discord.SelectOption(
-                label="German",
+                label="Russian",
                 description=""
             ),
         ]
