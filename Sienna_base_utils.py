@@ -4,7 +4,7 @@ import random
 import peewee
 from peewee import *
 from Sienna import Language, Notifications
-from Sienna_mod import SMODSETBACKEN, SMODSETBACKDE
+from Sienna_mod import SMODSETBACKEN, SMODSETBACKRU
 
 class SBASEUTIL(commands.Cog):
     def __init__(self, bot):
