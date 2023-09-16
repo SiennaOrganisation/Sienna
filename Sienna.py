@@ -55,6 +55,8 @@ SAR_DB.close()
 
 intents = discord.Intents.default()
 intents.members = True
+intents.messages = True
+intents.message_content = True
 bot = commands.Bot(command_prefix='S_', intents=intents)
 bot.remove_command('help')
 
@@ -63,7 +65,8 @@ cogs_list = [
     'Sienna_base_utils',
     'Sienna_fun',
     'Sienna_economy',
-    'Sienna_shield'
+    'Sienna_shield',
+    'Sienna_rp_addon'
 ]
 for cog in cogs_list:
     bot.load_extension(f'{cog}')
