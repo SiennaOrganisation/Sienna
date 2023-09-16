@@ -9,7 +9,7 @@ class SRA(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.guld.id != 1150689721144574002:
+        if message.guild.id != 1150689721144574002:
             pass
         else:
             if message.channel.id != 1150690216831627286:
