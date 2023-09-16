@@ -9,7 +9,7 @@ class SRA(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.author == bot.user:
+        if message.author == self.bot.user:
             pass
         if message.guild.id != 1150689721144574002:
             pass
