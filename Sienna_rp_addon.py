@@ -22,17 +22,23 @@ class SRA(commands.Cog):
                         trans = translator.translate(message.content, dest='ru')
                         await message.delete()
                         await message.channel.send(
-                            f"{message.author.name}:   " + trans.text + "----------" + message.content)
+                            f"{message.author.name}: 
+                            {trans.text}
+                            {message.content}")
                     elif message.author.id == 786011616004669440:
                         trans = translator.translate(message.content, dest='ru')
                         await message.delete()
                         await message.channel.send(
-                            f"{message.author.name}:   " + trans.text + "----------" + message.content)
+                            f"**{message.author.name}**: 
+                            {trans.text} 
+                            {message.content}")
                     else:
                         trans = translator.translate(message.content, dest='en')
                         await message.delete()
                         await message.channel.send(
-                            f"{message.author.name}:   " + message.content + "----------" + trans.text)
+                            f"**{message.author.name}**: 
+                            {message.content} 
+                            {trans.text}")
 
 def setup(bot):
     bot.add_cog(SRA(bot))
