@@ -2,4 +2,4 @@ py-cord
 PyMySQL
 peewee
 requests
-googletrans
+googletrans==3.1.0a0
