@@ -9,8 +9,8 @@ from playhouse.shortcuts import ReconnectMixin
 class ReconnectMySQLDatabase(ReconnectMixin, MySQLDatabase):
     pass
 
-SMOD_DB = ReconnectMySQLDatabase('railway', user='root', password='X7cfVHBMAia5YaKhdkgD',
-                         host='containers-us-west-75.railway.app', port=7732)
+SMOD_DB = ReconnectMySQLDatabase('railway', user='root', password='6sblgc3-yb8kt@t30ov48b3b8@36m4d-',
+                         host='viaduct.proxy.rlwy.net', port=36216)
 class Language(Model):
     guild_id = BigIntegerField()
     lang = CharField(max_length=2)
@@ -25,8 +25,8 @@ SMOD_DB.connect()
 SMOD_DB.create_tables([Language, Notifications])
 SMOD_DB.close()
 
-SECO_DB = ReconnectMySQLDatabase('railway', user='root', password='xcoGDuHDzdLRZfOJx7wo',
-                         host='containers-us-west-150.railway.app', port=7340)
+SECO_DB = ReconnectMySQLDatabase('railway', user='root', password='ul24sjh-m@5wgp3__okzv6i590glyw39',
+                         host='roundhouse.proxy.rlwy.net', port=20563)
 class Economy(Model):
     guild_id = BigIntegerField()
     user_id = BigIntegerField()
