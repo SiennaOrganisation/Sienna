@@ -310,7 +310,7 @@ class SMODREPORTEN(discord.ui.Modal):
         self.add_item(discord.ui.InputText(label="Please describe the bug", style=discord.InputTextStyle.long))
 
     async def callback(self, interaction: discord.Interaction):
-        channel = bot.get_channel(1141774982268076042)
+        channel = bot.get_channel(1100099118338150550)
         settings = discord.Embed(title='Bug report sent', colour=0xf1c40f)
         settings.add_field(name='**Developers will review your report soon**',
                            value='**__________________**', inline=False)
@@ -328,7 +328,7 @@ class SMODREPORTRU(discord.ui.Modal):
         self.add_item(discord.ui.InputText(label="Пожалуйста, опишите ошибку", style=discord.InputTextStyle.long))
 
     async def callback(self, interaction: discord.Interaction):
-        channel = bot.get_channel(1141774982268076042)
+        channel = bot.get_channel(1100099118338150550)
         settings = discord.Embed(title='Репорт об ошибках отправлен', colour=0xf1c40f)
         settings.add_field(name='**Разработчики вскоре его рассмотрят**',
                            value='**__________________**', inline=False)
