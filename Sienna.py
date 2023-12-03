@@ -71,7 +71,7 @@ cogs_list = [
 for cog in cogs_list:
     bot.load_extension(f'{cog}')
 
-Token = 'MTEzOTIzNDgyNzcyMDIwODQwNA.GO4VhI.XWRBFPYqpou7aThe84SnsI0YE3dLHQhJpN3FuA'
+Token = 'MTEzOTIzNDgyNzcyMDIwODQwNA.G0C9cp.PB38an6L5CpzIgqmHL--Cu2rLicK3mcyTDUs4g'
 
 @bot.before_invoke
 async def command_executed(guild):
