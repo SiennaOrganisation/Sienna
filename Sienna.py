@@ -9,8 +9,8 @@ from playhouse.shortcuts import ReconnectMixin
 class ReconnectMySQLDatabase(ReconnectMixin, MySQLDatabase):
     pass
 
-SMOD_DB = ReconnectMySQLDatabase('railway', user='root', password='6sblgc3-yb8kt@t30ov48b3b8@36m4d-',
-                         host='viaduct.proxy.rlwy.net', port=36216)
+SMOD_DB = ReconnectMySQLDatabase('railway', user='root', password='ADhFBHEH6hAedhf6D4DgAdgAGfeGdHG2',
+                         host='viaduct.proxy.rlwy.net', port=36370)
 class Language(Model):
     guild_id = BigIntegerField()
     lang = CharField(max_length=2)
@@ -25,8 +25,8 @@ SMOD_DB.connect()
 SMOD_DB.create_tables([Language, Notifications])
 SMOD_DB.close()
 
-SECO_DB = ReconnectMySQLDatabase('railway', user='root', password='ul24sjh-m@5wgp3__okzv6i590glyw39',
-                         host='roundhouse.proxy.rlwy.net', port=20563)
+SECO_DB = ReconnectMySQLDatabase('railway', user='root', password='H53GDABa6E1Acahe25hgF-E5a3444462',
+                         host='monorail.proxy.rlwy.net', port=21714)
 class Economy(Model):
     guild_id = BigIntegerField()
     user_id = BigIntegerField()
@@ -37,8 +37,8 @@ SECO_DB.connect()
 SECO_DB.create_tables([Economy])
 SECO_DB.close()
 
-SAR_DB = ReconnectMySQLDatabase('railway', user='root', password='cvoovYtMtOa3uSoGQjvG',
-                         host='containers-us-west-196.railway.app', port=7536)
+SAR_DB = ReconnectMySQLDatabase('railway', user='root', password='Hhgh3eDBBdhG31HFef5fe-G1HagG3-3b',
+                         host='viaduct.proxy.rlwy.net', port=49221)
 class Raiders(Model):
     user_id = BigIntegerField()
     user_class = CharField(max_length=1)
