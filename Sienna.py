@@ -66,7 +66,6 @@ cogs_list = [
     'Sienna_fun',
     'Sienna_economy',
     'Sienna_shield',
-    'Sienna_rp_addon'
 ]
 for cog in cogs_list:
     bot.load_extension(f'{cog}')
