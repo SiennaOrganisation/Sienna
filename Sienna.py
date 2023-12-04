@@ -21,8 +21,15 @@ class Notifications(Model):
     channel_id = BigIntegerField()
     class Meta:
         database = SMOD_DB
+class Warns(Model):
+    guild_id = BigIntegerField()
+    user_id = BigIntegerField()
+    warn = CharField(max_length=200)
+    index = BigIntegerField()
+    class Meta:
+        database = SMOD_DB
 SMOD_DB.connect()
-SMOD_DB.create_tables([Language, Notifications])
+SMOD_DB.create_tables([Language, Notifications, Warns])
 SMOD_DB.close()
 
 SECO_DB = ReconnectMySQLDatabase('railway', user='root', password='H53GDABa6E1Acahe25hgF-E5a3444462',
