@@ -249,7 +249,8 @@ class SBASEUTIL(commands.Cog):
                     warn_emb.add_field(name=f'**User** {user.name}, got warned.',
                                     value=f'**Reason:** {warn}',
                                     inline=False)
-                    await ctx.respond(embed=warn_emb, ephemeral=True)
+                    await ctx.response.defer()
+                    await ctx.followup.send(embed=warn_emb, ephemeral=True)
                     channel = await user.create_dm()
                     warn_emb = discord.Embed(title='You got warned', colour=0xf1c40f)
                     warn_emb.add_field(name=f'**Server** {user.guild.name}',
@@ -261,7 +262,8 @@ class SBASEUTIL(commands.Cog):
                             warn_emb = discord.Embed(title='User warned', colour=0xf1c40f)
                             warn_emb.add_field(name=f'**User** {user.name}, got warned.',
                                             value=f'**Reason:** {warn}', inline=False)
-                            await ctx.respond(embed=warn_emb, ephemeral=True)
+                            await ctx.response.defer()
+                            await ctx.followup.send(embed=warn_emb, ephemeral=True)
                             channel = await user.create_dm()
                             warn_emb = discord.Embed(title='You got warned', colour=0xf1c40f)
                             warn_emb.add_field(name=f'**Server** {user.guild.name}',
@@ -272,7 +274,8 @@ class SBASEUTIL(commands.Cog):
                             warn_emb.add_field(
                                 name=f'**Пользователь** {user.name}, был предупрежден.',
                                 value=f'**Причина:** {warn}', inline=False)
-                            await ctx.respond(embed=warn_emb, ephemeral=True)
+                            await ctx.response.defer()
+                            await ctx.followup.send(embed=warn_emb, ephemeral=True)
                             channel = await user.create_dm()
                             warn_emb = discord.Embed(title='Вы получили предупреждение', colour=0xf1c40f)
                             warn_emb.add_field(name=f'**Сервер** {user.guild.name}',
@@ -290,7 +293,8 @@ class SBASEUTIL(commands.Cog):
                 for warns in Warns.select().where(Warns.guild_id == ctx.guild.id, Warns.user_id == user.id):
                     warn_emb.add_field(name=f'**Warn:** {warns.warn}',
                                        value=f'**Index:** {warns.index}', inline=False)
-                    await ctx.respond(embed=warn_emb, ephemeral=True)
+                    await ctx.response.defer()
+                    await ctx.followup.send(embed=warn_emb, ephemeral=True)
             else:
                 for language in Language.select().where(Language.guild_id == ctx.guild.id):
                     if language.lang == 'en':
@@ -298,14 +302,16 @@ class SBASEUTIL(commands.Cog):
                         for warns in Warns.select().where(Warns.guild_id == ctx.guild.id, Warns.user_id == user.id):
                             warn_emb.add_field(name=f'**Warn:** {warns.warn}',
                                                value=f'**Index:** {warns.index}', inline=False)
-                            await ctx.respond(embed=warn_emb, ephemeral=True)
+                            await ctx.response.defer()
+                            await ctx.followup.send(embed=warn_emb, ephemeral=True)
                     else:
                         warn_emb = discord.Embed(title=f'**Предупреждения пользователя** {user.name}', colour=0xf1c40f)
                         for warns in Warns.select().where(Warns.guild_id == ctx.guild.id, Warns.user_id == user.id):
                             warn_emb.add_field(
                                 name=f'**Предупреждение:** {warns.warn}',
                                 value=f'**Индекс:** {warns.index}', inline=False)
-                            await ctx.respond(embed=warn_emb, ephemeral=True)
+                            await ctx.response.defer()
+                            await ctx.followup.send(embed=warn_emb, ephemeral=True)
         else:
             getlang = Language.get_or_none(guild_id=ctx.guild.id)
             if getlang is None:
@@ -342,20 +348,23 @@ class SBASEUTIL(commands.Cog):
                     warn_emb = discord.Embed(title='Warns removal', colour=0xf1c40f)
                     warn_emb.add_field(name=f'**All warns for {user.name} have been removed**',
                                        value='**__________________**', inline=False)
-                    await ctx.respond(embed=warn_emb, ephemeral=True)
+                    await ctx.response.defer()
+                    await ctx.followup.send(embed=warn_emb, ephemeral=True)
                 else:
                     for language in Language.select().where(Language.guild_id == ctx.guild.id):
                         if language.lang == 'en':
                             warn_emb = discord.Embed(title='Warns removal', colour=0xf1c40f)
                             warn_emb.add_field(name=f'**All warns for {user.name} have been removed**',
                                                value='**__________________**', inline=False)
-                            await ctx.respond(embed=warn_emb, ephemeral=True)
+                            await ctx.response.defer()
+                            await ctx.followup.send(embed=warn_emb, ephemeral=True)
                         else:
                             warn_emb = discord.Embed(title='Удаление предупреждений', colour=0xf1c40f)
                             warn_emb.add_field(
                                 name=f'**Все предупреждения для {user.name} удалены**',
                                 value='**__________________**', inline=False)
-                            await ctx.respond(embed=warn_emb, ephemeral=True)
+                            await ctx.response.defer()
+                            await ctx.followup.send(embed=warn_emb, ephemeral=True)
             else:
                 for warns in Warns.select().where(Warns.guild_id == ctx.guild.id, Warns.user_id == user.id,
                                                   Warns.index == index):
@@ -366,20 +375,23 @@ class SBASEUTIL(commands.Cog):
                     warn_emb = discord.Embed(title='Warns removal', colour=0xf1c40f)
                     warn_emb.add_field(name=f'**All warns with index {index} for {user.name} have been removed**',
                                        value='**__________________**', inline=False)
-                    await ctx.respond(embed=warn_emb, ephemeral=True)
+                    await ctx.response.defer()
+                    await ctx.followup.send(embed=warn_emb, ephemeral=True)
                 else:
                     for language in Language.select().where(Language.guild_id == ctx.guild.id):
                         if language.lang == 'en':
                             warn_emb = discord.Embed(title='Warns removal', colour=0xf1c40f)
                             warn_emb.add_field(name=f'**All warns with index {index} for {user.name} have been removed**',
                                                value='**__________________**', inline=False)
-                            await ctx.respond(embed=warn_emb, ephemeral=True)
+                            await ctx.response.defer()
+                            await ctx.followup.send(embed=warn_emb, ephemeral=True)
                         else:
                             warn_emb = discord.Embed(title='Удаление предупреждений', colour=0xf1c40f)
                             warn_emb.add_field(
                                 name=f'**Все предупреждения с индексом {index} для {user.name} удалены**',
                                 value='**__________________**', inline=False)
-                            await ctx.respond(embed=warn_emb, ephemeral=True)
+                            await ctx.response.defer()
+                            await ctx.followup.send(embed=warn_emb, ephemeral=True)
         else:
             getlang = Language.get_or_none(guild_id=ctx.guild.id)
             if getlang is None:
