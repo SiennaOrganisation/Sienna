@@ -9,8 +9,8 @@ from playhouse.shortcuts import ReconnectMixin
 class ReconnectMySQLDatabase(ReconnectMixin, MySQLDatabase):
     pass
 
-SMOD_DB = ReconnectMySQLDatabase('railway', user='root', password='ADhFBHEH6hAedhf6D4DgAdgAGfeGdHG2',
-                         host='viaduct.proxy.rlwy.net', port=36370)
+SMOD_DB = ReconnectMySQLDatabase('beget', user='SMOD', password='EKV&0vHcEa62',
+                         host='10.16.0.1', port=3306)
 class Language(Model):
     guild_id = BigIntegerField()
     lang = CharField(max_length=2)
@@ -32,8 +32,8 @@ SMOD_DB.connect()
 SMOD_DB.create_tables([Language, Notifications, Warns])
 SMOD_DB.close()
 
-SECO_DB = ReconnectMySQLDatabase('railway', user='root', password='H53GDABa6E1Acahe25hgF-E5a3444462',
-                         host='monorail.proxy.rlwy.net', port=21714)
+SECO_DB = ReconnectMySQLDatabase('beget', user='SECO', password='k&e4xIbxOLib',
+                         host='10.16.0.1', port=3306)
 class Economy(Model):
     guild_id = BigIntegerField()
     user_id = BigIntegerField()
@@ -44,8 +44,8 @@ SECO_DB.connect()
 SECO_DB.create_tables([Economy])
 SECO_DB.close()
 
-SAR_DB = ReconnectMySQLDatabase('railway', user='root', password='Hhgh3eDBBdhG31HFef5fe-G1HagG3-3b',
-                         host='viaduct.proxy.rlwy.net', port=49221)
+SAR_DB = ReconnectMySQLDatabase('railway', user='SAR', password='R6t*FXTmh*pB',
+                         host='10.16.0.1', port=3306)
 class Raiders(Model):
     user_id = BigIntegerField()
     user_class = CharField(max_length=1)
