@@ -289,26 +289,32 @@ class SBASEUTIL(commands.Cog):
         if warns_get is not None:
             getlang = Language.get_or_none(guild_id=ctx.guild.id)
             if getlang is None:
+                load_emb = discord.Embed(title='**Pending...**, colour=0xf1c40f)
                 warn_emb = discord.Embed(title=f'**Warns of** {user.name}', colour=0xf1c40f)
                 for warns in Warns.select().where(Warns.guild_id == ctx.guild.id, Warns.user_id == user.id):
                     warn_emb.add_field(name=f'**Warn:** {warns.warn}',
                                        value=f'**Index:** {warns.index}', inline=False)
-                    await ctx.respond(embed=warn_emb, ephemeral=True)
+                    await ctx.respond(embed=load_emb, ephemeral=True)
+                    await ctx.send(embed=warn_emb, ephemeral=True)
             else:
                 for language in Language.select().where(Language.guild_id == ctx.guild.id):
                     if language.lang == 'en':
+                        load_emb = discord.Embed(title='**Pending...**, colour=0xf1c40f)
                         warn_emb = discord.Embed(title=f'**Warns of** {user.name}', colour=0xf1c40f)
                         for warns in Warns.select().where(Warns.guild_id == ctx.guild.id, Warns.user_id == user.id):
                             warn_emb.add_field(name=f'**Warn:** {warns.warn}',
                                                value=f'**Index:** {warns.index}', inline=False)
-                            await ctx.respond(embed=warn_emb, ephemeral=True)
+                            await ctx.send(embed=load_emb, ephemeral=True)
+                            await ctx.send(embed=warn_emb, ephemeral=True)
                     else:
+                        load_emb = discord.Embed(title='**Загрузка...**, colour=0xf1c40f)
                         warn_emb = discord.Embed(title=f'**Предупреждения пользователя** {user.name}', colour=0xf1c40f)
                         for warns in Warns.select().where(Warns.guild_id == ctx.guild.id, Warns.user_id == user.id):
                             warn_emb.add_field(
                                 name=f'**Предупреждение:** {warns.warn}',
                                 value=f'**Индекс:** {warns.index}', inline=False)
-                            await ctx.respond(embed=warn_emb, ephemeral=True)
+                            await ctx.send(embed=load_emb, ephemeral=True)
+                            await ctx.send(embed=warn_emb, ephemeral=True)
         else:
             getlang = Language.get_or_none(guild_id=ctx.guild.id)
             if getlang is None:
