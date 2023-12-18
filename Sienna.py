@@ -45,7 +45,7 @@ SECO_DB.create_tables([Economy])
 SECO_DB.close()
 
 SAR_DB = ReconnectMySQLDatabase('railway', user='root', password='-24e4CHAFC2GEhc-GEDhgHAGb5E1aFf6',
-                         host='viaduct.proxy.rlwy.nett', port=39236)
+                         host='viaduct.proxy.rlwy.net', port=39236)
 class Raiders(Model):
     user_id = BigIntegerField()
     user_class = CharField(max_length=1)
