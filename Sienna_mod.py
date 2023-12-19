@@ -11,6 +11,7 @@ class SMODNOTIFEN(discord.ui.View):
         min_values=1,
         max_values=1,
         select_type=discord.ComponentType.channel_select
+        channel_types=[discord.ChannelType.text]
     )
     async def select_callback(self, select, interaction):
         getnotif = Notifications.get_or_none(guild_id=interaction.guild_id)
@@ -33,6 +34,7 @@ class SMODNOTIFRU(discord.ui.View):
         min_values=1,
         max_values=1,
         select_type=discord.ComponentType.channel_select
+        channel_types=[discord.ChannelType.text]
     )
     async def select_callback(self, select, interaction):
         getnotif = Notifications.get_or_none(guild_id=interaction.guild_id)
