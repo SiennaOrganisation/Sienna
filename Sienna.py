@@ -30,7 +30,6 @@ class Warns(Model):
         database = SMOD_DB
 SMOD_DB.connect()
 SMOD_DB.create_tables([Language, Notifications, Warns])
-SMOD_DB.close()
 
 SECO_DB = ReconnectMySQLDatabase('railway', user='root', password='62bE-HDGB3-6-H-c2B41Ccefh-Ha4c6a',
                          host='monorail.proxy.rlwy.net', port=19068)
@@ -42,7 +41,6 @@ class Economy(Model):
         database = SECO_DB
 SECO_DB.connect()
 SECO_DB.create_tables([Economy])
-SECO_DB.close()
 
 SAR_DB = ReconnectMySQLDatabase('railway', user='root', password='-24e4CHAFC2GEhc-GEDhgHAGb5E1aFf6',
                          host='viaduct.proxy.rlwy.net', port=39236)
@@ -58,7 +56,6 @@ class Actions(Model):
         database = SAR_DB
 SAR_DB.connect()
 SAR_DB.create_tables([Raiders, Actions])
-SAR_DB.close()
 
 intents = discord.Intents.default()
 intents.members = True
@@ -85,11 +82,8 @@ async def command_executed(guild):
         SMOD_DB.connect()
     if SECO_DB.is_closed():
         SECO_DB.connect()
-
-@bot.after_invoke
-async def command_after_executed(guild):
-    SMOD_DB.close()
-    SECO_DB.close()
+    if SAR_DB.is_closed():
+        SAR_DB.connect()
 
 @bot.event
 async def on_ready():
