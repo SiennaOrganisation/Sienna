@@ -10,7 +10,7 @@ class SMODNOTIFEN(discord.ui.View):
         placeholder="Channel selection",
         min_values=1,
         max_values=1,
-        select_type=discord.ComponentType.channel_select
+        select_type=discord.ComponentType.channel_select,
         channel_types=[discord.ChannelType.text]
     )
     async def select_callback(self, select, interaction):
@@ -33,7 +33,7 @@ class SMODNOTIFRU(discord.ui.View):
         placeholder="Выбор канала",
         min_values=1,
         max_values=1,
-        select_type=discord.ComponentType.channel_select
+        select_type=discord.ComponentType.channel_select,
         channel_types=[discord.ChannelType.text]
     )
     async def select_callback(self, select, interaction):
